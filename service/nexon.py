@@ -15,7 +15,18 @@ def nexon_request(url):
     print(f"url : {url}")
     response = requests.get(url, headers=headers)
     print(response.json())
-    check_error(response=response.json())
+    try:
+        check_error(response=response.json())
+    except RuntimeError:
+        pass
+    except ForbiddenOperation:
+        pass
+    except InvalidIdentifier:
+        pass
+    except CharacterNotFound:
+        pass
+    except InvalidApiKey:
+        pass
 
     return response
 
