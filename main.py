@@ -2,6 +2,8 @@ import asyncio
 import os
 from bot import bot
 import listener.character_info
+import listener.help
+import listener.sunday
 
 token = os.getenv('DISCORD_BOT_PYTHON_TOKEN')
 

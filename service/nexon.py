@@ -3,7 +3,7 @@ from exceptions.bot_exceptions import *
 import os
 
 
-def nexon_request(url):
+def send_request(url):
     nexon_api_key = os.getenv('NEXON_API_KEY')
     if nexon_api_key is None:
         print("넥슨 API가 없음")
@@ -14,26 +14,16 @@ def nexon_request(url):
     }
     print(f"url : {url}")
     response = requests.get(url, headers=headers)
-    print(response.json())
-    try:
-        check_error(response=response.json())
-    except RuntimeError:
-        pass
-    except ForbiddenOperation:
-        pass
-    except InvalidIdentifier:
-        pass
-    except CharacterNotFound:
-        pass
-    except InvalidApiKey:
-        pass
-
-    return response
+    print(f"응답 : {response.json()}")
+    check_error(response=response.json())
+    
+    return response.json()
 
 
 def check_error(response):
-    error_code = response.get("name")
-    if error_code:
+    error_json = response.get("error")
+    if error_json:
+        error_code = error_json.get("name")
         ERRORS = {
             "OPENAPI00001": RuntimeError(),
             "OPENAPI00002": ForbiddenOperation(),
@@ -47,4 +37,5 @@ def check_error(response):
             "OPENAPI00011": ApiMaintenance(),
         }
         if error_code in ERRORS:
+            print(f"{error_code} 발생")
             raise ERRORS[error_code]
