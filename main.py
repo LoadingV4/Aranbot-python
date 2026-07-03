@@ -42,7 +42,9 @@ async def on_command_error(ctx, error):
 
 
 async def main():
-    print("TOKEN =", repr(os.getenv("DISCORD_BOT_TOKEN")))
+    print("DISCORD_BOT_TOKEN" in os.environ)
+    print(os.environ.get("DISCORD_BOT_TOKEN"))
+    print(list(os.environ.keys()))
     if token is None:
         print('토큰이 설정되지 않았습니다.')
         raise RuntimeError("토큰이 없습니다")
