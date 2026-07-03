@@ -8,10 +8,10 @@ from consts.colors import INFO_COLOR, ERROR_COLOR
 def get_ocid(character_name):
     url = "https://open.api.nexon.com/maplestory/v1/id?character_name=" + character_name
     response = send_request(url)
-    if response.ok:
-        return response.json().get("ocid")
+    if response:
+        return response.get("ocid")
     else:
-        return response.json().get("error")
+        return response.get("error")
 
 
 @bot.command(name="정보", aliases=["info"])
@@ -94,7 +94,7 @@ async def info(ctx, *, character_name: str):
         embed = discord.Embed(
             title=":no_entry: **유효하지 않은 닉네임입니다.**", color=ERROR_COLOR)
         embed.add_field(name="다른 닉네임을 시도해주세요.",
-                        value=f"```입력한 닉네임 : {character_name}\n\n1. 닉네임은 6글자 제한입니다.(영문과 숫자는 한 글자당 0.5글자)\n2. 특수문자 또는 한글 모음, 자음 단독으로는 사용할 수 없습니다.```", inline=False)
+                        value=f"```입력한 닉네임 : {character_name}\n\n1. 닉네임은 6글자 제한입니다.(영문과 숫자는 한 글자당 0.5글자)\n2. 특수문자 또는 한글 모음, 자음 단독으로는 사용할 수 없습니다.\n3. 공백은 사용 불가합니다.```", inline=False)
     await ctx.send(embed=embed)
 
 

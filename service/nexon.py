@@ -8,7 +8,7 @@ def send_request(url):
     if nexon_api_key is None:
         print("넥슨 API가 없음")
         raise RuntimeError("넥슨 API가 없음")
-    
+
     headers = {
         "x-nxopen-api-key": nexon_api_key
     }
@@ -16,7 +16,7 @@ def send_request(url):
     response = requests.get(url, headers=headers)
     print(f"응답 : {response.json()}")
     check_error(response=response.json())
-    
+
     return response.json()
 
 
