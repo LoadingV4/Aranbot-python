@@ -11,7 +11,7 @@ from consts.command_prefix import COMMAND_PREFIX
 from discord.ext import commands
 import discord
 
-token = os.getenv('DISCORD_BOT_PYTHON_TOKEN')
+token = os.getenv('DISCORD_BOT_TOKEN')
 
 
 @bot.event
