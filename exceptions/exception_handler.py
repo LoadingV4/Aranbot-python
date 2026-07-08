@@ -7,8 +7,9 @@ from consts.command_prefix import COMMAND_PREFIX
 
 @bot.event
 async def on_command_error(ctx, error):
-    print("존재하지 않는 명령어")
+    print(f'오류 발생 : {error}')
     if isinstance(error, commands.CommandNotFound):
+        print("존재하지 않는 명령어")
         embed = discord.Embed(
             title=":no_entry: **명령어 입력을 확인하세요**",
             color=ERROR_COLOR
@@ -20,6 +21,7 @@ async def on_command_error(ctx, error):
             inline=False
         )
     if isinstance(error, commands.BadArgument) or isinstance(error, commands.MissingRequiredArgument):
+        print('잘못된 인수')
         embed = discord.Embed(
             title=":no_entry: **명령어 입력을 확인하세요**", color=ERROR_COLOR)
         embed.add_field(name="인수가 필요한 명령어입니다.",
