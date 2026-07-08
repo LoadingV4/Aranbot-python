@@ -10,7 +10,6 @@ from consts.colors import ERROR_COLOR
 from consts.command_prefix import COMMAND_PREFIX
 from discord.ext import commands
 import discord
-from dotenv import load_dotenv
 
 token = os.getenv('DISCORD_BOT_TOKEN')
 
