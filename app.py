@@ -6,6 +6,7 @@ import listener.help
 import listener.sunday
 import listener.boutique
 import listener.guild_info
+import exceptions.exception_handler
 from consts.colors import ERROR_COLOR
 from consts.command_prefix import COMMAND_PREFIX
 from discord.ext import commands
