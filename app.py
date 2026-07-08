@@ -11,8 +11,6 @@ from consts.command_prefix import COMMAND_PREFIX
 from discord.ext import commands
 import discord
 
-token = os.getenv('DISCORD_BOT_TOKEN')
-
 
 @bot.event
 async def on_ready():
@@ -42,6 +40,8 @@ async def on_command_error(ctx, error):
 
 
 async def main():
+    token = os.getenv('DISCORD_BOT_TOKEN')
+
     # load_dotenv()
     # print("DISCORD_BOT_TOKEN" in os.environ)
     # print(os.environ.get("DISCORD_BOT_TOKEN"))
