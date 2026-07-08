@@ -95,7 +95,7 @@ async def info(ctx, *, character_name: str):
             title=":no_entry: **유효하지 않은 닉네임입니다.**", color=ERROR_COLOR)
         embed.add_field(name="다른 닉네임을 시도해주세요.",
                         value=f"```입력한 닉네임 : {character_name}\n\n1. 닉네임은 6글자 제한입니다.(영문과 숫자는 한 글자당 0.5글자)\n2. 특수문자 또는 한글 모음, 자음 단독으로는 사용할 수 없습니다.\n3. 공백은 사용 불가합니다.```", inline=False)
-    await ctx.send(embed=embed)
+    await ctx.reply(embed=embed)
 
 
 def get_character_info(response_json):

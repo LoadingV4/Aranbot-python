@@ -65,7 +65,7 @@ async def get_sunday_event(ctx):
         inline=False
     )
 
-    await ctx.send(embed=embed)
+    await ctx.reply(embed=embed)
 
 
 def get_sunday(event_notice):

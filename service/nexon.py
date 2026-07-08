@@ -12,9 +12,7 @@ def send_request(url):
     headers = {
         "x-nxopen-api-key": nexon_api_key
     }
-    print(f"url : {url}")
     response = requests.get(url, headers=headers)
-    print(f"응답 : {response.json()}")
     check_error(response=response.json())
 
     return response.json()

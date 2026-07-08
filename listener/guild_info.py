@@ -58,12 +58,12 @@ async def guild(ctx, *, guild_name: str):
             title=":no_entry: **유효하지 않은 길드명입니다.**", color=ERROR_COLOR)
         embed.add_field(name="다른 길드명을 시도해주세요.",
                         value=f"```입력한 길드명 : {guild_name}\n\n1. 길드명은 6글자 제한입니다.(영문과 숫자는 한 글자당 0.5글자)\n2. 특수문자 또는 한글 모음, 자음 단독으로는 사용할 수 없습니다.\n3. 공백은 사용 불가합니다.```", inline=False)
-        await ctx.send(embed=embed)
+        await ctx.reply(embed=embed)
         return
     
     view = WorldView(guild_name, ctx.author)
 
-    await ctx.send(
+    await ctx.reply(
         "월드를 선택해주세요.",
         view=view
     )
