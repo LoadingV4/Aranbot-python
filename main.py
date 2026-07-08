@@ -18,6 +18,7 @@ token = os.getenv('DISCORD_BOT_TOKEN')
 @bot.event
 async def on_ready():
     print('BOT READY')
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=f"도움말은 {COMMAND_PREFIX}도움 또는 {COMMAND_PREFIX}help"), status=discord.Status.online)
 
 
 @bot.event
@@ -34,7 +35,6 @@ async def on_command_error(ctx, error):
             value=f"```{COMMAND_PREFIX}도움 또는 {COMMAND_PREFIX}help를 입력하여 명령어 목록을 확인하세요.```",
             inline=False
         )
-        # await bot.process_commands(message)
         await ctx.send(embed=embed)
         return
 
@@ -43,14 +43,13 @@ async def on_command_error(ctx, error):
 
 
 async def main():
-    load_dotenv()
-    print("DISCORD_BOT_TOKEN" in os.environ)
-    print(os.environ.get("DISCORD_BOT_TOKEN"))
-    print(list(os.environ.keys()))
+    # load_dotenv()
+    # print("DISCORD_BOT_TOKEN" in os.environ)
+    # print(os.environ.get("DISCORD_BOT_TOKEN"))
+    # print(list(os.environ.keys()))
     if token is None:
         print('토큰이 설정되지 않았습니다.')
         raise RuntimeError("토큰이 없습니다")
-    print(bot.commands)
     await bot.start(token=token)
 
 asyncio.run(main=main())

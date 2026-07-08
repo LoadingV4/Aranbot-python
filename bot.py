@@ -8,5 +8,6 @@ intents.message_content = True
 
 bot = commands.Bot(
     command_prefix=COMMAND_PREFIX,
-    intents=intents
+    intents=intents,
+    help_command=None
 )
