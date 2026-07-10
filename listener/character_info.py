@@ -31,8 +31,9 @@ async def info(ctx, *, character_name: str):
             embed.set_image(url=character_info["thumbnail_url"])
             embed.add_field(
                 name="직업", value=character_info["character_class"], inline=False)
+            guild_name = character_info["character_guild_name"]
             embed.add_field(
-                name="길드", value=character_info["character_guild_name"], inline=False)
+                name="길드", value=guild_name if guild_name is not None else "없음:x:", inline=False)
             embed.add_field(
                 name="월드", value=character_info["world_name"], inline=False)
             embed.add_field(
