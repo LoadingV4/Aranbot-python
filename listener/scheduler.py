@@ -1,6 +1,6 @@
 from bot import bot
 from service.nexon import *
-from consts.colors import INFO_COLOR, ERROR_COLOR
+from consts.colors import INFO_COLOR
 import discord
 
 
