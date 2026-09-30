@@ -4,7 +4,7 @@ from consts.colors import INFO_COLOR
 from consts.command_prefix import COMMAND_PREFIX
 
 
-@bot.command(name="도움", aliases=["도움말"])
+@bot.command(name="도움", aliases=["도움말", "help"])
 async def get_help(ctx):
     await ctx.send(embed=create_help())
 

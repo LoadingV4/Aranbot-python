@@ -62,7 +62,7 @@ async def on_command_error(ctx, error):
 
         embed.add_field(
             name=f"알 수 없는 오류입니다.",
-            value=f"```잠시후 다시 시도해주세요.",
+            value=f"```잠시후 다시 시도해주세요.```",
             inline=False
         )
     await ctx.reply(embed=embed)

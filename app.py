@@ -6,6 +6,7 @@ import listener.help
 import listener.sunday
 import listener.boutique
 import listener.guild_info
+import listener.scheduler
 import exceptions.exception_handler
 from consts.colors import ERROR_COLOR
 from consts.command_prefix import COMMAND_PREFIX
@@ -14,7 +15,7 @@ import discord
 from dotenv import load_dotenv
 
 load_dotenv()
-token = os.getenv('DISCORD_TOKEN')
+token = os.getenv('TEST_DISCORD_TOKEN')
 
 @bot.event
 async def on_ready():

@@ -14,6 +14,7 @@ def send_request(url):
     }
     response = requests.get(url, headers=headers)
     check_error(response=response.json())
+    # print(response.json())
 
     return response.json()
 
