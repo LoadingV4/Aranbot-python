@@ -15,7 +15,7 @@ import discord
 from dotenv import load_dotenv
 
 load_dotenv()
-token = os.getenv('TEST_DISCORD_TOKEN')
+token = os.getenv('DISCORD_TOKEN')
 
 @bot.event
 async def on_ready():
