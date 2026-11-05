@@ -29,9 +29,11 @@ def get_info(response):
                      if boss["registration_flag"] == "true" and boss["cycle"] == "bossWeekly"]
 
     print(f"주간 보스({clear_count}/{limit_count}), {weekly_bosses}")
-    if clear_count == limit_count and weekly_bosses:
+    if not weekly_bosses:
+        embed.add_field(name=f"주간 보스({clear_count}/{limit_count})",value="아직 보스를 돌지 않았거나 등록된 보스가 없습니다.❌")
+    elif clear_count == limit_count:
         embed.add_field(
-            name="주간 보스", value=f"모두 클리어({clear_count}/{limit_count})✅")
+            name=f"주간 보스({clear_count}/{limit_count})", value=f"모두 클리어({clear_count}/{limit_count})✅")
     else:
         difficulty_map = {
             "easy": "이지",
@@ -42,7 +44,8 @@ def get_info(response):
         }
 
         boss_list = {}
-
+        embed.add_field(
+            name=f"주간 보스({clear_count}/{limit_count})", value="", inline=False)
         for boss in weekly_bosses:
             name = boss["content_name"]
             difficulty = difficulty_map.get(
@@ -53,6 +56,7 @@ def get_info(response):
             status = "✅" if boss["complete_flag"] == "true" else "❌"
 
             boss_list[boss_name] = status
-            embed.add_field(name=boss_name, value=boss_list[boss_name], inline=True)
+            embed.add_field(
+                name=boss_name, value=boss_list[boss_name], inline=True)
 
     return embed
