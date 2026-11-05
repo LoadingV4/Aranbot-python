@@ -23,14 +23,15 @@ def get_info(response):
     character_class = response["character_class"]
 
     embed = discord.Embed(
-        title=f"{world_name} Lv.{character_level} {character_class} {character_name}의 스케쥴러")
+        title=f"{world_name} Lv.{character_level} {character_class} {character_name}의 스케쥴러", colour=INFO_COLOR)
 
     weekly_bosses = [boss for boss in response["boss_contents"]
                      if boss["registration_flag"] == "true" and boss["cycle"] == "bossWeekly"]
 
+    print(f"주간 보스({clear_count}/{limit_count}), {weekly_bosses}")
     if clear_count == limit_count and weekly_bosses:
         embed.add_field(
-            name="주간 보스", value=f"모두 클리어({clear_count}/{limit_count}) ✅")
+            name="주간 보스", value=f"모두 클리어({clear_count}/{limit_count})✅")
     else:
         difficulty_map = {
             "easy": "이지",
@@ -40,16 +41,18 @@ def get_info(response):
             "extreme": "익스트림"
         }
 
-        boss_list = []
+        boss_list = {}
 
         for boss in weekly_bosses:
             name = boss["content_name"]
             difficulty = difficulty_map.get(
                 boss["difficulty"], boss["difficulty"])
 
+            boss_name = name+" "+difficulty
+
             status = "✅" if boss["complete_flag"] == "true" else "❌"
 
-            boss_list.append(f"{difficulty} {name} {status}")
-            embed.add_field(
-                name=f"주간 보스({clear_count}/{limit_count})", value=boss_list)
+            boss_list[boss_name] = status
+            embed.add_field(name=boss_name, value=boss_list[boss_name], inline=False)
+
     return embed
