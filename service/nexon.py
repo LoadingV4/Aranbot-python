@@ -18,6 +18,14 @@ def send_request(url):
 
     return response.json()
 
+def get_ocid(character_name):
+    url = "https://open.api.nexon.com/maplestory/v1/id?character_name=" + character_name
+    response = send_request(url)
+    if response:
+        return response.get("ocid")
+    else:
+        return response.get("error")
+
 
 def check_error(response):
     error_json = response.get("error")

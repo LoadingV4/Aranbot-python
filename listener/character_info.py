@@ -5,15 +5,6 @@ from datetime import datetime, date
 from consts.colors import INFO_COLOR, ERROR_COLOR
 
 
-def get_ocid(character_name):
-    url = "https://open.api.nexon.com/maplestory/v1/id?character_name=" + character_name
-    response = send_request(url)
-    if response:
-        return response.get("ocid")
-    else:
-        return response.get("error")
-
-
 @bot.command(name="정보", aliases=["info"])
 async def info(ctx, *, character_name: str):
     print(f"캐릭터 닉네임 : {character_name}")
