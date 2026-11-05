@@ -48,11 +48,11 @@ def get_info(response):
             difficulty = difficulty_map.get(
                 boss["difficulty"], boss["difficulty"])
 
-            boss_name = name+" "+difficulty
+            boss_name = f"{difficulty} {name}"
 
             status = "✅" if boss["complete_flag"] == "true" else "❌"
 
             boss_list[boss_name] = status
-            embed.add_field(name=boss_name, value=boss_list[boss_name], inline=False)
+            embed.add_field(name=boss_name, value=boss_list[boss_name], inline=True)
 
     return embed
