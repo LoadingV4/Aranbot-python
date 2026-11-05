@@ -14,7 +14,6 @@ async def scheduler(ctx, *, character_name: str):
 
 
 def get_info(response):
-    print(f"스케쥴러 응답 : {response}")
     clear_count = response["weekly_boss_clear_count"]
     limit_count = response["weekly_boss_clear_limit_count"]
 
@@ -27,7 +26,7 @@ def get_info(response):
         title=f"{world_name} Lv.{character_level} {character_class} {character_name}의 스케쥴러")
 
     weekly_bosses = [boss for boss in response["boss_contents"]
-                     if response["registration_flag"] == "true" and boss["cycle"] == "bossWeekly"]
+                     if boss["registration_flag"] == "true" and boss["cycle"] == "bossWeekly"]
 
     if clear_count == limit_count and weekly_bosses:
         embed.add_field(
