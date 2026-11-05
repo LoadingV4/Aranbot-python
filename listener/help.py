@@ -62,9 +62,9 @@ def create_help():
         inline=False
     )
 
-    # embed.add_field(
-    #     name=f"8. `{COMMAND_PREFIX}스타포스` 또는 `{COMMAND_PREFIX}별`",
-    #     value="스타포스 시뮬레이션을 실행합니다.\n과연 신창섭께서 당신에게 웃어줄까요?",
-    #     inline=False
-    # )
+    embed.add_field(
+        name=f"5. `{COMMAND_PREFIX}스케쥴러 닉네임` 또는 `{COMMAND_PREFIX}스케줄러 닉네임`",
+        value="캐릭터의 스케쥴러를 확인할 수 있습니다.",
+        inline=False
+    )
     return embed
