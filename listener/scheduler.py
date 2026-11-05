@@ -14,6 +14,7 @@ async def scheduler(ctx, *, character_name: str):
 
 
 def get_info(response):
+    print(f"스케쥴러 응답 : {response}")
     clear_count = response["weekly_boss_clear_count"]
     limit_count = response["weekly_boss_clear_limit_count"]
 
