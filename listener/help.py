@@ -62,9 +62,9 @@ def create_help():
         inline=False
     )
 
-    embed.add_field(
-        name=f"5. `{COMMAND_PREFIX}스케쥴러 닉네임` 또는 `{COMMAND_PREFIX}스케줄러 닉네임`",
-        value="캐릭터의 스케쥴러를 확인할 수 있습니다.\n자신의 계정에 포한된 캐릭터만 조회 가능합니다.",
-        inline=False
-    )
+    # embed.add_field(
+    #     name=f"5. `{COMMAND_PREFIX}스케쥴러 닉네임` 또는 `{COMMAND_PREFIX}스케줄러 닉네임`",
+    #     value="캐릭터의 스케쥴러를 확인할 수 있습니다.\n자신의 계정에 포한된 캐릭터만 조회 가능합니다.",
+    #     inline=False
+    # )
     return embed
