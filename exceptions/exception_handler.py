@@ -12,7 +12,7 @@ async def on_command_error(ctx, error):
     embed = None
 
     if isinstance(error, commands.CommandNotFound):
-        print("존재하지 않는 명령어 : {ctx.message.content}")
+        print(f"존재하지 않는 명령어 : {ctx.message.content}")
 
         embed = discord.Embed(
             title=":no_entry: **명령어 입력을 확인하세요**",
