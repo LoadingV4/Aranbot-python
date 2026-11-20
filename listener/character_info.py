@@ -10,6 +10,7 @@ async def info(ctx, *, character_name: str):
     print(f"캐릭터 닉네임 : {character_name}")
     embed = None
     if check_nickname(character_name=character_name):
+        print("닉네임 정상")
         try:
             ocid = get_ocid(character_name)
             print(f"ocid : {ocid}")
@@ -137,7 +138,7 @@ def check_nickname(character_name):
     print(f"영어 : {english // 2}, 숫자 : {num // 2} 한글 : {hangul}")
     print(f"총 길이 : {hangul + (english + num) // 2}")
 
-    if english == 0 and num == 0:
-        return nickname_minimum <= hangul <= nickname_limit
+    if english != 0 or num != 0:
+        return nickname_minimum <= hangul + (english + num) // 2 <= nickname_limit
     else:
-        return hangul + (english + num) // 2 <= nickname_limit
+        return nickname_minimum <= hangul <= nickname_limit
