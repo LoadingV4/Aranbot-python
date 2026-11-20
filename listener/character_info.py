@@ -134,6 +134,9 @@ def check_nickname(character_name):
         else:
             num += 1
 
+    print(f"영어 : {english // 2}, 숫자 : {num // 2} 한글 : {hangul}")
+    print(f"총 길이 : {hangul + (english + num) // 2}")
+
     if english == 0 and num == 0:
         return nickname_minimum <= hangul <= nickname_limit
     else:
